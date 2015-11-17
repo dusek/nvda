@@ -1,0 +1,19 @@
+version: '{build}'
+
+platform:
+  - x86
+
+install:
+  - git submodule update --init --recursive
+
+build_script:
+  - '"c:\Python27\python.exe" scons.py launcher'
+  - '"c:\Python27\python.exe" scons.py dist'
+  - dir
+  - dir output
+  - dir dist
+  - dir launcher
+  - dir build
+
+artifacts:
+  - path: 'output\nvda_snapshot*.exe'
